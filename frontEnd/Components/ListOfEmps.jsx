@@ -19,7 +19,7 @@ function ListOfEmps() {
 
   // Delete employee by ID and refresh list
   const deleteEmpByID = async (id) => {
-    let res = await axios.delete(`http://localhost:4000/emp-api/employees/${id}`);
+    let res = await axios.delete(`${import.meta.env.VITE_API_URL}/employees/${id}`);
     if (res.status === 200) {
       getEmps(); // refresh after deletion
     }
@@ -27,7 +27,7 @@ function ListOfEmps() {
 
   // Fetch employees from backend API
   async function getEmps() {
-    let res = await axios.get("http://localhost:4000/emp-api/employees");
+    let res = await axios.get(`${import.meta.env.VITE_API_URL}/employees`);
     if (res.status === 200) {
       let resObj = res.data;
       setEmps(resObj.payload); // update state with employees

@@ -16,7 +16,7 @@ function CreateEmp() {
   const onFormSubmit = async (newEmpObj) => {
     try {
       setLoading(true);
-      let res = await fetch("http://localhost:4000/emp-api/employees", {
+      let res = await fetch(`${import.meta.env.VITE_API_URL}/employees`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newEmpObj),

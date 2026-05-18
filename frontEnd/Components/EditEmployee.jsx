@@ -34,7 +34,7 @@ function EditEmployee() {
     //make HTTP PUT req
     try{
       setLoading(true)
-    const res=await axios.put(`http://localhost:4000/emp-api/employees/${state._id}`,modifiedEmp)
+    const res=await axios.put(`${import.meta.env.VITE_API_URL}/employees/${state._id}`,modifiedEmp)
     if(res.status===200)
     {
       navigate('/list');
